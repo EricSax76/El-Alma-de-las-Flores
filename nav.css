@@ -1,0 +1,110 @@
+/* Estilo general de la navegación */
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye el contenido */
+    padding: 10px 20px;
+    background-color: #6b9080; /* Color base */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilo de la lista principal */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Espaciado entre elementos */
+}
+
+/* Elementos de la lista */
+nav li {
+    position: relative;
+}
+
+/* Enlaces principales */
+nav li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff; /* Texto blanco */
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s, background-color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+nav li a:hover {
+    color: #333; /* Cambia color de texto al pasar el mouse */
+    background-color: #f0f0f0; /* Fondo claro al hacer hover */
+}
+
+/* Submenú desplegable */
+nav li ul.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #eaeaea;
+    border: 1px solid #ccc;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    border-radius: 5px;
+    overflow: hidden; /* Redondear esquinas correctamente */
+    transition: all 0.3s ease-in-out;
+}
+
+nav li:hover ul.dropdown {
+    display: block; /* Muestra el submenú */
+}
+
+/* Elementos del submenú */
+nav li ul.dropdown li {
+    width: 100%;
+}
+
+nav li ul.dropdown li a {
+    padding: 10px 15px;
+    color: #333; /* Texto oscuro */
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav li ul.dropdown li a:hover {
+    background-color: #d3e0ea; /* Color suave al hover */
+    color: #000;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Cambia a columna */
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    nav li ul.dropdown {
+        position: relative; /* Ajusta submenús para pantallas pequeñas */
+        display: none; /* Por defecto oculto */
+    }
+
+    nav li:hover ul.dropdown {
+        display: block; /* Muestra el submenú */
+    }
+
+    nav li a {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+  
