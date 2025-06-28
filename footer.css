@@ -1,6 +1,6 @@
 /* Estilo general del footer */
 footer {
-    width: 100%;
+    inline-size: 100%;
     background-color: #6b9080;
     padding: 20px 10px;
     text-align: center;
@@ -8,7 +8,7 @@ footer {
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
     font-size: 1rem;
     line-height: 1.5;
-    margin-top: 50px;
+    margin-block-start: 50px;
 }
 
 /* Textos del footer */
@@ -48,8 +48,8 @@ footer li {
 
 /* Íconos sociales */
 .icon {
-    width: 50px;
-    height: 50px;
+    inline-size: 50px;
+    block-size: 50px;
     border-radius: 50%; /* Hace los iconos circulares */
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
@@ -61,18 +61,14 @@ footer li {
 
 /* Estilo específico para la última sección de enlaces */
 .last_footer {
-    margin-top: 20px;
-    margin-left: 200px;
+    margin-block-start: 20px;
+    margin-inline-start: 300px;
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap; /* Adaptable para pantallas pequeñas */
 }
 
-.last_footer li {
-    margin: 5px 0;
-    
-}
 
 /* Responsividad */
 @media (max-width: 768px) {
@@ -82,8 +78,8 @@ footer li {
     }
 
     .icon {
-        width: 40px;
-        height: 40px;
+        inline-size: 40px;
+        block-size: 40px;
     }
 
     .last_footer {
