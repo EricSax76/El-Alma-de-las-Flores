@@ -16,28 +16,36 @@ window.addEventListener('scroll', function () {
         navbar.style.opacity = '1'; // Lo vuelve visible
     }
 });
+const registerForm = document.getElementById('register-form');
+if (registerForm) {
+    registerForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+            username: form.username.value,
+            email: form.email.value,
+            password: form.password.value
+        };
 
-document.getElementById('register-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = {
-        username: form.username.value,
-        email: form.email.value,
-        password: form.password.value
-    };
-    const res = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
+        try {
+            const res = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+            const result = await res.json();
+            if (res.ok) {
+                // OPCIÓN 1: Alerta y luego redirige
+                alert('¡Registro exitoso! Ahora inicia sesión.');
+                window.location.href = '/public/login.html'; // Cambia el path si tu login está en otra ruta
+            } else {
+                document.getElementById('msg').textContent = result.error || 'Error en el registro';
+            }
+        } catch (err) {
+            document.getElementById('msg').textContent = 'Error de conexión con el servidor';
+        }
     });
-    const result = await res.json();
-    if (res.ok) {
-        document.getElementById('msg').textContent = '¡Registro exitoso! Ahora puedes iniciar sesión.';
-        // Redirige o muestra mensaje aquí, si quieres.
-    } else {
-        document.getElementById('msg').textContent = result.error || 'Error en el registro';
-    }
-});
+}
 
 const dropdownMenus = document.querySelectorAll('.dropdown');
 
