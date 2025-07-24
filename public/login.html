@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    
-    
-    
-    
+    <link rel="stylesheet" href="/css/styles.css">   
 </head>
 <body>
-    <h1>Iniciar Sesión</h1>
-    <form action="/api/auth/login" method="POST">
-        <label>Usuario: <input type="text" name="username" required></label><br>
+    <form id="login-form">
+        <label>Email: <input type="email" name="email" required></label><br>
         <label>Contraseña: <input type="password" name="password" required></label><br>
         <button type="submit">Entrar</button>
     </form>
+    <div id="msg"></div>
     <p>¿No tienes cuenta? <a href="/public/register.html">Regístrate</a></p>
-    <script src="/js/main.js" defer></script>
+    <script src="/js/login.js" defer></script>
 </body>
 </html>
