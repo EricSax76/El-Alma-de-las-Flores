@@ -28,11 +28,12 @@ if (registerForm) {
         };
 
         try {
-            const res = await fetch('/api/auth/register', {
+            const res = await fetch('http://localhost:4000/api/auth/register', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
             });
+        
             const result = await res.json();
             if (res.ok) {
                 // OPCIÓN 1: Alerta y luego redirige
