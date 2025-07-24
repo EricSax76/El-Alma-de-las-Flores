@@ -5,7 +5,7 @@ const token = localStorage.getItem('token');
 
 if (!token) {
     // Si no hay token, redirige al login
-    window.location.href = '/login.html';
+    window.location.href = '/public/login.html';
 } else {
     // Pide los datos de perfil al backend (AJAX/fetch con Authorization: Bearer <token>)
     fetch('http://localhost:4000/api/users/profile', {
@@ -27,12 +27,12 @@ if (!token) {
     })
     .catch(() => {
         // Si el token es inválido, redirige al login
-        window.location.href = '/login.html';
+        window.location.href = '/public/login.html';
     });
 }
 
 // Lógica para cerrar sesión
 document.getElementById('logout-btn').addEventListener('click', function() {
     localStorage.removeItem('token');
-    window.location.href = '/login.html';
+    window.location.href = '/public/index.html';
 });
