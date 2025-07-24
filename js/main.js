@@ -17,6 +17,28 @@ window.addEventListener('scroll', function () {
     }
 });
 
+document.getElementById('register-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+        username: form.username.value,
+        email: form.email.value,
+        password: form.password.value
+    };
+    const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    if (res.ok) {
+        document.getElementById('msg').textContent = '¡Registro exitoso! Ahora puedes iniciar sesión.';
+        // Redirige o muestra mensaje aquí, si quieres.
+    } else {
+        document.getElementById('msg').textContent = result.error || 'Error en el registro';
+    }
+});
+
 const dropdownMenus = document.querySelectorAll('.dropdown');
 
 dropdownMenus.forEach((menu) => {

@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <script src="/js/main.js" defer></script>
-    <script src="/js/server.js" defer></script>
+    
 </head>
 <body>
     <h1>Registro</h1>
-<form action="/public/login.html" method="POST">
-    <label>Usuario: <input type="text" name="username" required></label><br>
-    <label>Contraseña: <input type="password" name="password" required></label><br>
-    <button type="submit">Registrar</button>
+    <form id="register-form">
+        <label>Usuario: <input type="text" name="username" required></label><br>
+        <label>Email: <input type="email" name="email" required></label><br>
+        <label>Contraseña: <input type="password" name="password" required></label><br>
+        <button type="submit">Registrar</button>
+    </form>
+    <div id="msg"></div>
 </form>
     <p>¿Ya tienes cuenta? <a href="/public/login.html">Inicia sesión</a></p>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/server.js" defer></script>
     
 </body>
 </html>
